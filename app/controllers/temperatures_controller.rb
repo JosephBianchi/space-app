@@ -61,8 +61,6 @@ class TemperaturesController < ApplicationController
   def serialized_temperature(temperature_json)
     # - probably would have use a more scalable serialization technique
     # - in-case we need to change serializtion - or serialize for different consumers
-    puts temperature_json.class
-    puts temperature_json
     temperature_obj = JSON.parse(temperature_json)
     { temperature: farenheit_to_celsius(temperature_obj['temperature']), timestamp: temperature_obj['timestamp']}
   end
